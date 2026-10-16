@@ -1,0 +1,199 @@
+/* ===== AedesZero - Formulário (mesma identidade do index) ===== */
+
+:root {
+    --ink: #10231c;
+    --ink-soft: #4a5f56;
+    --forest: #0f3d2e;
+    --forest-dark: #082a1f;
+    --leaf: #2f9e6e;
+    --lime: #c8f169;
+    --paper: #f6f8f4;
+    --tint: #e9f0e8;
+    --white: #ffffff;
+    --line: #d5dfd6;
+    --radius: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+.wrap { width: min(1100px, 92%); margin: 0 auto; }
+
+/* Topbar */
+.topbar {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(8, 42, 31, 0.92);
+    backdrop-filter: blur(8px);
+}
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.brand {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 700; font-size: 1.4rem; color: var(--lime);
+}
+.btn-back {
+    color: var(--lime);
+    border: 1px solid rgba(200,241,105,.5);
+    padding: 8px 20px; border-radius: 999px;
+    font-weight: 700; font-size: .95rem;
+    transition: background .2s, color .2s, transform .2s;
+}
+.btn-back:hover { background: var(--lime); color: var(--forest-dark); transform: translateY(-2px); }
+
+/* Cabeçalho da página */
+.page-head {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(200,241,105,.18), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(47,158,110,.35), transparent 50%),
+        var(--forest-dark);
+    color: var(--white);
+    padding: 64px 0 130px;
+}
+.eyebrow {
+    display: inline-block;
+    text-transform: uppercase; letter-spacing: .18em;
+    font-size: .78rem; font-weight: 700;
+    color: var(--lime);
+    border: 1px solid rgba(200,241,105,.4);
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 22px;
+}
+.page-head h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.1; font-weight: 700;
+    margin-bottom: 14px;
+}
+.page-head h1 span { color: var(--lime); }
+.lead { font-size: 1.08rem; color: #cfe0d6; max-width: 560px; }
+
+/* Cartão do formulário (sobe sobre o cabeçalho) */
+.container {
+    background: var(--white);
+    width: min(560px, 92%);
+    margin: -80px auto 60px;
+    padding: 38px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--leaf);
+    box-shadow: 0 22px 44px rgba(15, 61, 46, 0.15);
+}
+
+form { display: flex; flex-direction: column; }
+
+form label {
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 14px;
+}
+form label:first-child { margin-top: 0; }
+
+form input[type="text"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    background: #f9fbf8;
+    outline: none;
+    transition: 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--leaf);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(47, 158, 110, 0.18);
+}
+
+form textarea { resize: none; min-height: 110px; }
+
+/* Input de arquivo */
+form input[type="file"] {
+    width: 100%;
+    padding: 0;
+    border: 1.5px dashed var(--leaf);
+    border-radius: 12px;
+    background: var(--tint);
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink-soft);
+    cursor: pointer;
+}
+
+form input[type="file"]::file-selector-button {
+    background: var(--leaf);
+    color: var(--white);
+    border: none;
+    padding: 12px 18px;
+    margin-right: 12px;
+    border-radius: 10px 0 0 10px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+form input[type="file"]::file-selector-button:hover { background: var(--forest); }
+
+/* Botão Enviar */
+form button,
+form input[type="submit"] {
+    margin-top: 28px;
+    padding: 14px 30px;
+    background: linear-gradient(90deg, #2f9e6e, #0f3d2e);
+    color: var(--white);
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+}
+form button:hover,
+form input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(47, 158, 110, 0.4);
+}
+
+/* Link de voltar no fim do cartão */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--leaf);
+}
+.back-link:hover { color: var(--forest); text-decoration: underline; }
+
+@media (max-width: 600px) {
+    .container { padding: 28px 22px; margin-top: -70px; }
+    .page-head { padding: 48px 0 110px; }
+}
+
+/* Caixa de aviso (erro / sucesso) */
+.mensagem {
+    margin-bottom: 22px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border-left: 5px solid;
+    font-size: .95rem;
+    font-weight: 500;
+}
+.mensagem.sucesso { background: var(--tint); border-color: var(--leaf); color: var(--forest); }
+.mensagem.erro { background: #fdecec; border-color: #d64545; color: #8a1f1f; }
